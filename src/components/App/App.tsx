@@ -1,6 +1,6 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import FormPage from "../../pages/FormPage";
+import FormPage from "../../pages/FormPage/FormPage";
 import styledMainTheme from "../../utils/styledMainTheme";
 import Header from "../Header/Header";
 

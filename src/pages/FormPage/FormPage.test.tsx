@@ -1,10 +1,15 @@
 import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 import FormPage from "./FormPage";
 
 describe("Given a Form component", () => {
   describe("When it's instantiated", () => {
     test("Then it should show the Form component and a heading", () => {
-      render(<FormPage />);
+      render(
+        <BrowserRouter>
+          <FormPage />
+        </BrowserRouter>
+      );
 
       const heading = "Check the car model";
       const labelOfUsername = "Write your username:";

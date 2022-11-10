@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
 const CarStyled = styled.div`
-  margin-top: 5rem;
+  margin-top: 2rem;
 
   .table__container {
-    width: 100%;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   table {

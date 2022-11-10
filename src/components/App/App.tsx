@@ -2,7 +2,7 @@ import React from "react";
 import { ThemeProvider } from "styled-components";
 import { Navigate, Route, Routes } from "react-router-dom";
 import FormPage from "../../pages/FormPage/FormPage";
-import styledMainTheme from "../../utils/styledMainTheme";
+import styledMainTheme from "../../styledMainTheme";
 import Header from "../Header/Header";
 
 function App() {

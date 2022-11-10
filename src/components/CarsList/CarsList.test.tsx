@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { expectedListOfCars } from "../../test-utils/cars";
 import mockLocalStorage from "../../test-utils/mockLocalStorage";
 import saveInLocalStorage from "../../utils/saveInLocalStorage";

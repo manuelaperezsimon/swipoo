@@ -4,7 +4,7 @@ import CarCard from "./Car";
 
 describe("Given a Car component", () => {
   describe("When it's instantiated", () => {
-    test.only("Then it should show a table with information of the car selected", () => {
+    test("Then it should show a table with information of the car selected", () => {
       render(<CarCard car={fakeCar} />);
 
       const headerTable = "Vehicle data";

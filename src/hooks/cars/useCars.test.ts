@@ -1,9 +1,8 @@
 import { act, renderHook } from "@testing-library/react";
 import useCars from "./useCars";
 import axios from "axios";
-
 import { toast } from "react-toastify";
-import expectedListOfCars from "../../test-utils/cars";
+import { expectedListOfCars } from "../../test-utils/cars";
 
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 jest.mock("axios");

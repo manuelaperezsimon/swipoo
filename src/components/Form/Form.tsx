@@ -51,7 +51,6 @@ const Form = (): JSX.Element => {
       if (carsInfoComplete.length < 1) {
         errorModal("Oops, there are not models :( ");
       } else {
-        console.log(carsInfoComplete);
         setCars(carsInfoComplete);
       }
     };

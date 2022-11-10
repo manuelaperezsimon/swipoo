@@ -1,6 +1,6 @@
 import { act, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { toast } from "react-toastify";
+import { BrowserRouter } from "react-router-dom";
 import { expectedListOfCars } from "../../test-utils/cars";
 import { errorModal } from "../../utils/modals";
 import Form from "./Form";
@@ -22,7 +22,11 @@ describe("Given a Form component", () => {
 
   describe("When it's instantiated", () => {
     test("Then it should show three select inputs and a input", () => {
-      render(<Form />);
+      render(
+        <BrowserRouter>
+          <Form />
+        </BrowserRouter>
+      );
 
       const labelOfUsername = "Write your username:";
       const labelOfBrandCar = "Choose the car brand:";
@@ -51,7 +55,11 @@ describe("Given a Form component", () => {
       const enrollmentDateTyped = "2020-03-02";
       const fuelTyped = "G";
 
-      render(<Form />);
+      render(
+        <BrowserRouter>
+          <Form />
+        </BrowserRouter>
+      );
 
       const placeholderInputUsername = "Enter your name :)";
       const placeholderInputEnrollmentDate = "enrollmentDate";
@@ -85,7 +93,11 @@ describe("Given a Form component", () => {
       const enrollmentDateTyped = "2020-03-02";
       const fuelTyped = "G";
 
-      render(<Form />);
+      render(
+        <BrowserRouter>
+          <Form />
+        </BrowserRouter>
+      );
 
       const placeholderInputUsername = "Enter your name :)";
       const placeholderInputEnrollmentDate = "enrollmentDate";
@@ -125,7 +137,11 @@ describe("Given a Form component", () => {
       const labelOfModel = "Car model:";
       const modelTyped = "4C 1.7 Tbi TCT / 1.75 6V 240";
 
-      render(<Form />);
+      render(
+        <BrowserRouter>
+          <Form />
+        </BrowserRouter>
+      );
 
       const placeholderInputUsername = "Enter your name :)";
       const placeholderInputEnrollmentDate = "enrollmentDate";
@@ -162,8 +178,6 @@ describe("Given a Form component", () => {
       await waitFor(() => {
         expect(carTable).toBeInTheDocument();
       });
-
-      //o cuando selecciono el modelo espero qe se me pinte la tabla
     });
   });
 });

@@ -26,7 +26,10 @@ const FormPageStyled = styled.div`
     flex-direction: column;
     font-family: inherit;
     width: 100%;
-    height: 2rem;
+    font-size: 1.1rem;
+    padding: 0.7rem 0.7rem 0.7rem 0.8rem;
+    border: 1px solid ${(props) => props.theme.primaryColor};
+    border-radius: 0.4rem;
   }
 
   .choose__group {

@@ -5,7 +5,7 @@ const FormPage = (): JSX.Element => {
   return (
     <>
       <FormPageStyled>
-        <h2 className="form__heading">Check the car model</h2>;
+        <h2 className="form__heading">Check the car model</h2>
         <Form />
       </FormPageStyled>
     </>

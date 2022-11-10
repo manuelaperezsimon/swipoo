@@ -6,7 +6,7 @@ import NotFoundPage from "./NotFoundPage";
 
 describe("Given the NotFound page", () => {
   describe("When it's instantiated", () => {
-    test.only("Then should show 'NotFound' component", () => {
+    test("Then should show 'NotFound' component", () => {
       const textNotFound = "There's nothing around here!";
       const textLink = "Go to check models!";
 

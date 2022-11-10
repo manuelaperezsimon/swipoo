@@ -6,6 +6,8 @@ import useCars from "../../hooks/cars/useCars";
 import { Car, CompleteCarInfo } from "../../interfaces/interfaceCar";
 import { errorModal } from "../../utils/modals";
 import CarCard from "../Car/Car";
+import Button from "../Button/Button";
+import saveInLocalStorage from "../../utils/saveInLocalStorage";
 
 const Form = (): JSX.Element => {
   const initialCarState: Car = {
@@ -140,13 +142,24 @@ const Form = (): JSX.Element => {
         </div>
       </form>
       {infoCarUser.model && (
-        <CarCard
-          car={
-            cars.find(
-              (car) => car.model === infoCarUser.model
-            ) as CompleteCarInfo
-          }
-        />
+        <>
+          <CarCard
+            car={
+              cars.find(
+                (car) => car.model === infoCarUser.model
+              ) as CompleteCarInfo
+            }
+          />
+          <Button
+            text="Save"
+            type="button"
+            action={() =>
+              cars.find((car) =>
+                car.model === infoCarUser.model ? saveInLocalStorage(car) : ""
+              )
+            }
+          />
+        </>
       )}
     </>
   );

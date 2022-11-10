@@ -5,6 +5,7 @@ import FormPage from "../../pages/FormPage/FormPage";
 import styledMainTheme from "../../styledMainTheme";
 import Header from "../Header/Header";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
+import CarsListPage from "../../pages/CarsListPage/CarsListPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             </>
           }
         />
+        <Route path="/cars" element={<CarsListPage />} />
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>
     </ThemeProvider>

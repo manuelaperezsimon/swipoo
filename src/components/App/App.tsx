@@ -4,6 +4,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import FormPage from "../../pages/FormPage/FormPage";
 import styledMainTheme from "../../styledMainTheme";
 import Header from "../Header/Header";
+import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             </>
           }
         />
+        <Route path="/*" element={<NotFoundPage />} />
       </Routes>
     </ThemeProvider>
   );

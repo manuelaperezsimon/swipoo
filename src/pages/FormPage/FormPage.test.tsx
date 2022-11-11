@@ -12,7 +12,7 @@ describe("Given a Form component", () => {
       );
 
       const heading = "Check the car model";
-      const labelOfUsername = "Write your username:";
+      const labelOfUsername = "Write your name:";
       const labelOfBrandCar = "Choose the car brand:";
       const labelOfRegistrationDate = "Here is the first registration date:";
       const labelOfFuelType = "Fuel type:";

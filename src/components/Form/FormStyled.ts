@@ -3,6 +3,7 @@ import styled from "styled-components";
 const FormStyled = styled.form`
   display: flex;
   flex-direction: column;
+  gap: 3rem;
 
   .form {
     display: flex;
@@ -29,8 +30,17 @@ const FormStyled = styled.form`
     font-size: 1.1rem;
   }
 
+  .card__group {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
   @media (min-width: 900px) {
-    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+
     .form {
       width: 60%;
       max-width: 600px;

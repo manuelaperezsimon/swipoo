@@ -6,7 +6,7 @@ const HeaderStyled = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
   padding: 2rem 1.5rem;
-  box-shadow: 0 0 20px rgb(0 0 0 / 5%);
+  box-shadow: ${(props) => props.theme.gradientBoxesColor};
   max-width: 100vw;
 
   .header__title {

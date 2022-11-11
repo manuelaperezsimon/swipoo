@@ -9,6 +9,8 @@ import CarCard from "../Car/Car";
 import Button from "../Button/Button";
 import saveInLocalStorage from "../../utils/saveInLocalStorage";
 import FormStyled from "./FormStyled";
+import { useNavigate } from "react-router-dom";
+import MarketValue from "../MarketValue/MarketValue";
 
 const Form = (): JSX.Element => {
   const initialCarState: Car = {
@@ -20,6 +22,7 @@ const Form = (): JSX.Element => {
   };
 
   const { getModelsCars } = useCars();
+  const navigate = useNavigate();
 
   const [infoCarUser, setInfoCarUser] = useState(initialCarState);
   const [cars, setCars] = useState([] as CompleteCarInfo[]);
@@ -60,6 +63,10 @@ const Form = (): JSX.Element => {
 
     onSubmitPartialInfo();
   }, [getModelsCars, infoCarUser]);
+
+  const navigateToCarsList = () => {
+    navigate("/cars");
+  };
 
   return (
     <>
@@ -153,13 +160,20 @@ const Form = (): JSX.Element => {
                   ) as CompleteCarInfo
                 }
               />
+              <MarketValue
+                car={
+                  cars.find(
+                    (car) => car.model === infoCarUser.model
+                  ) as CompleteCarInfo
+                }
+              />
               <Button
                 text="Save"
                 type="button"
                 action={() =>
                   cars.find((car) =>
                     car.model === infoCarUser.model
-                      ? saveInLocalStorage(car)
+                      ? (saveInLocalStorage(car), navigateToCarsList())
                       : ""
                   )
                 }

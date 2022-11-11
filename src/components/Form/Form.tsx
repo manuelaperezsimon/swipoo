@@ -72,7 +72,7 @@ const Form = (): JSX.Element => {
         >
           <div className="form__group">
             <label htmlFor="user" className="choose__group">
-              Write your username:
+              Write your name:
               <input
                 id="user"
                 className="options__group"
@@ -143,26 +143,30 @@ const Form = (): JSX.Element => {
             </label>
           </div>
         </form>
-        {infoCarUser.model && (
-          <>
-            <CarCard
-              car={
-                cars.find(
-                  (car) => car.model === infoCarUser.model
-                ) as CompleteCarInfo
-              }
-            />
-            <Button
-              text="Save"
-              type="button"
-              action={() =>
-                cars.find((car) =>
-                  car.model === infoCarUser.model ? saveInLocalStorage(car) : ""
-                )
-              }
-            />
-          </>
-        )}
+        <div className="card__group">
+          {infoCarUser.model && (
+            <>
+              <CarCard
+                car={
+                  cars.find(
+                    (car) => car.model === infoCarUser.model
+                  ) as CompleteCarInfo
+                }
+              />
+              <Button
+                text="Save"
+                type="button"
+                action={() =>
+                  cars.find((car) =>
+                    car.model === infoCarUser.model
+                      ? saveInLocalStorage(car)
+                      : ""
+                  )
+                }
+              />
+            </>
+          )}
+        </div>
       </FormStyled>
     </>
   );

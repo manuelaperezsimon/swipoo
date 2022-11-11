@@ -8,6 +8,7 @@ import { errorModal } from "../../utils/modals";
 import CarCard from "../Car/Car";
 import Button from "../Button/Button";
 import saveInLocalStorage from "../../utils/saveInLocalStorage";
+import FormStyled from "./FormStyled";
 
 const Form = (): JSX.Element => {
   const initialCarState: Car = {
@@ -62,105 +63,107 @@ const Form = (): JSX.Element => {
 
   return (
     <>
-      <form
-        className="form"
-        noValidate
-        onSubmit={() => {}}
-        aria-label="form to check car model"
-      >
-        <div className="form__group">
-          <label htmlFor="user" className="choose__group">
-            Write your username:
-            <input
-              id="user"
-              className="options__group"
-              type="text"
-              placeholder="Enter your name :)"
-              value={infoCarUser.user}
-              onChange={onChangeInfo}
-              autoComplete="off"
-            />
-          </label>
-        </div>
-        <div className="form__group">
-          <label className="choose__group" htmlFor="brand">
-            Choose the car brand:
-            <select
-              className="options__group"
-              id="brand"
-              onChange={onSelectInfo}
-            >
-              {carBrands.map((brand) => (
-                <option key={brand}>{brand}</option>
-              ))}
-            </select>
-          </label>
-        </div>
+      <FormStyled>
+        <form
+          className="form"
+          noValidate
+          onSubmit={() => {}}
+          aria-label="form to check car model"
+        >
+          <div className="form__group">
+            <label htmlFor="user" className="choose__group">
+              Write your username:
+              <input
+                id="user"
+                className="options__group"
+                type="text"
+                placeholder="Enter your name :)"
+                value={infoCarUser.user}
+                onChange={onChangeInfo}
+                autoComplete="off"
+              />
+            </label>
+          </div>
+          <div className="form__group">
+            <label className="choose__group" htmlFor="brand">
+              Choose the car brand:
+              <select
+                className="options__group"
+                id="brand"
+                onChange={onSelectInfo}
+              >
+                {carBrands.map((brand) => (
+                  <option key={brand}>{brand}</option>
+                ))}
+              </select>
+            </label>
+          </div>
 
-        <div className="form__group">
-          <label htmlFor="enrollmentDate" className="choose__group">
-            Here is the first registration date:
-            <input
-              id="enrollmentDate"
-              className="options__group"
-              type="date"
-              placeholder="enrollmentDate"
-              value={infoCarUser.enrollmentDate}
-              onChange={onChangeInfo}
-              autoComplete="off"
-            />
-          </label>
-        </div>
-        <div className="form__group">
-          <label htmlFor="fuel" className="choose__group">
-            Fuel type:
-            <select
-              id="fuel"
-              className="options__group"
-              onChange={onSelectInfo}
-            >
-              {cardFuel.map((fuel) => (
-                <option key={fuel}>{fuel}</option>
-              ))}
-            </select>
-          </label>
-        </div>
+          <div className="form__group">
+            <label htmlFor="enrollmentDate" className="choose__group">
+              Here is the first registration date:
+              <input
+                id="enrollmentDate"
+                className="options__group"
+                type="date"
+                placeholder="enrollmentDate"
+                value={infoCarUser.enrollmentDate}
+                onChange={onChangeInfo}
+                autoComplete="off"
+              />
+            </label>
+          </div>
+          <div className="form__group">
+            <label htmlFor="fuel" className="choose__group">
+              Fuel type:
+              <select
+                id="fuel"
+                className="options__group"
+                onChange={onSelectInfo}
+              >
+                {cardFuel.map((fuel) => (
+                  <option key={fuel}>{fuel}</option>
+                ))}
+              </select>
+            </label>
+          </div>
 
-        <div className="form__group">
-          <label htmlFor="model" className="choose__group">
-            Car model:
-            <select
-              id="model"
-              className="options__group"
-              onChange={onSelectInfo}
-            >
-              {cars.map((car, index) => {
-                return <option key={index}>{car.model}</option>;
-              })}
-            </select>
-          </label>
-        </div>
-      </form>
-      {infoCarUser.model && (
-        <>
-          <CarCard
-            car={
-              cars.find(
-                (car) => car.model === infoCarUser.model
-              ) as CompleteCarInfo
-            }
-          />
-          <Button
-            text="Save"
-            type="button"
-            action={() =>
-              cars.find((car) =>
-                car.model === infoCarUser.model ? saveInLocalStorage(car) : ""
-              )
-            }
-          />
-        </>
-      )}
+          <div className="form__group">
+            <label htmlFor="model" className="choose__group">
+              Car model:
+              <select
+                id="model"
+                className="options__group"
+                onChange={onSelectInfo}
+              >
+                {cars.map((car, index) => {
+                  return <option key={index}>{car.model}</option>;
+                })}
+              </select>
+            </label>
+          </div>
+        </form>
+        {infoCarUser.model && (
+          <>
+            <CarCard
+              car={
+                cars.find(
+                  (car) => car.model === infoCarUser.model
+                ) as CompleteCarInfo
+              }
+            />
+            <Button
+              text="Save"
+              type="button"
+              action={() =>
+                cars.find((car) =>
+                  car.model === infoCarUser.model ? saveInLocalStorage(car) : ""
+                )
+              }
+            />
+          </>
+        )}
+      </FormStyled>
     </>
   );
 };

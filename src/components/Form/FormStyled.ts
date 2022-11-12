@@ -33,13 +33,15 @@ const FormStyled = styled.form`
   .card__group {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    margin-top: 2rem;
+    gap: 4.5rem;
   }
 
   @media (min-width: 900px) {
     display: flex;
-    flex-direction: row;
     gap: 4rem;
+    flex-direction: column;
+    align-items: center;
 
     .form {
       width: 60%;

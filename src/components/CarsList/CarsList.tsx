@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { CompleteCarInfo } from "../../interfaces/interfaceCar";
 import CarCard from "../Car/Car";
 import CarsListStyled from "./CarsListStyled";
-import { v4 as uuidv4 } from "uuid";
 
 const CarsList = (): JSX.Element => {
   const initialCarsListState: CompleteCarInfo[] = [];
@@ -22,7 +21,7 @@ const CarsList = (): JSX.Element => {
         {carsList.length > 0 ? (
           <ul className="cars__list">
             {carsList.map((car) => (
-              <li key={uuidv4()} className="cars__car">
+              <li key={car.user + car.brand + car.model} className="cars__car">
                 <CarCard car={car} />
               </li>
             ))}

@@ -8,7 +8,8 @@ describe("Given a MarketValue componente", () => {
       render(<MarketValue car={fakeCar} />);
 
       const headOfTable = "Market Value";
-      const valueOfHaciendaText = "Value according to Hacienda";
+      const valueOfHaciendaText =
+        "Value according to Hacienda (BOE-A-2017-15284)";
       const valueOfHacienda = `${fakeCar.value} €`;
       const depreciationText = "90% of market value";
 

@@ -13,12 +13,10 @@ const CarsListPageStyle = styled.section`
     align-items: center;
   }
 
-  .cars__list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding: 0;
+  @media (min-width: 900px) {
+    .section__heading {
+      font-size: 2rem;
+    }
   }
 `;
 

@@ -1,5 +1,4 @@
 import { CompleteCarInfo } from "../../interfaces/interfaceCar";
-import carBrands from "../../utils/brands";
 import CarStyled from "./CarStyled";
 
 interface CarProps {

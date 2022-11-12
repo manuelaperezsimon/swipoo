@@ -11,6 +11,12 @@ const FormPageStyled = styled.div`
       justify-content: center;
     }
   }
+
+  @media (min-width: 900px) {
+    .form__heading {
+      font-size: 2rem;
+    }
+  }
 `;
 
 export default FormPageStyled;

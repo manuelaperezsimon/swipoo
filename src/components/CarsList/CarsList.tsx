@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { CompleteCarInfo } from "../../interfaces/interfaceCar";
 import CarCard from "../Car/Car";
+import CarsListStyled from "./CarsListStyled";
 
 const CarsList = (): JSX.Element => {
   const initialCarsListState: CompleteCarInfo[] = [];
@@ -16,13 +17,15 @@ const CarsList = (): JSX.Element => {
 
   return (
     <>
-      <ul className="cars__list">
-        {carsList.map((car) => (
-          <li key={car.value} className="cars__car">
-            <CarCard car={car} />
-          </li>
-        ))}
-      </ul>
+      <CarsListStyled>
+        <ul className="cars__list">
+          {carsList.map((car) => (
+            <li key={car.value} className="cars__car">
+              <CarCard car={car} />
+            </li>
+          ))}
+        </ul>
+      </CarsListStyled>
     </>
   );
 };

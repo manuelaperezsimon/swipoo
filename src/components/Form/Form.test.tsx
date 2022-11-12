@@ -14,11 +14,6 @@ jest.mock("../../hooks/cars/useCars", () => {
   });
 });
 
-// jest.mock("../../utils/modals", () => ({
-//   errorModal: jest.fn(),
-//   successModal: jest.fn(),
-// }));
-
 describe("Given a Form component", () => {
   beforeEach(() => mockGetModels.mockResolvedValue([]));
 

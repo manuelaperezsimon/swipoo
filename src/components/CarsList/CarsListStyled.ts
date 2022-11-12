@@ -24,10 +24,6 @@ const CarsListStyled = styled.section`
       flex-wrap: wrap;
       justify-content: space-around;
     }
-
-    .cars__car {
-      width: 30%;
-    }
   }
 `;
 

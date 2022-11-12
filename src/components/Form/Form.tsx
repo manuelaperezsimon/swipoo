@@ -4,7 +4,7 @@ import cardFuel from "../../utils/fuelTypes";
 import "react-toastify/dist/ReactToastify.css";
 import useCars from "../../hooks/cars/useCars";
 import { Car, CompleteCarInfo } from "../../interfaces/interfaceCar";
-import { errorModal } from "../../utils/modals";
+import { errorModal, successModal } from "../../utils/modals";
 import CarCard from "../Car/Car";
 import Button from "../Button/Button";
 import saveInLocalStorage from "../../utils/saveInLocalStorage";
@@ -66,6 +66,16 @@ const Form = (): JSX.Element => {
 
   const navigateToCarsList = () => {
     navigate("/cars");
+  };
+
+  const onSave = () => {
+    cars.find((car) =>
+      car.model === infoCarUser.model
+        ? (saveInLocalStorage({ ...car, user: infoCarUser.user }),
+          successModal("Great! The car was saved :)"),
+          navigateToCarsList())
+        : ""
+    );
   };
 
   return (
@@ -150,9 +160,10 @@ const Form = (): JSX.Element => {
             </label>
           </div>
         </form>
-        <div className="card__group">
-          {infoCarUser.model && (
-            <>
+
+        {infoCarUser.model && (
+          <>
+            <div className="card__group">
               <CarCard
                 car={
                   cars.find(
@@ -167,20 +178,10 @@ const Form = (): JSX.Element => {
                   ) as CompleteCarInfo
                 }
               />
-              <Button
-                text="Save"
-                type="button"
-                action={() =>
-                  cars.find((car) =>
-                    car.model === infoCarUser.model
-                      ? (saveInLocalStorage(car), navigateToCarsList())
-                      : ""
-                  )
-                }
-              />
-            </>
-          )}
-        </div>
+            </div>
+            <Button text="Save" type="button" action={onSave} />
+          </>
+        )}
       </FormStyled>
     </>
   );

@@ -15,7 +15,7 @@ const CarsListPage = (): JSX.Element => {
       <Header />
       <CarsListPageStyle>
         <h2 className="section__heading">
-          Ey! The list of your saved cars is here:
+          Take a look to the list of saved cars:
         </h2>
         <CarsList />
         <Button

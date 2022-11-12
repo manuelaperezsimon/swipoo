@@ -1,10 +1,11 @@
 import { act, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { BrowserRouter } from "react-router-dom";
+import { toast } from "react-toastify";
 import { expectedListOfCars } from "../../test-utils/cars";
-import { errorModal } from "../../utils/modals";
 import Form from "./Form";
 
+jest.mock("react-toastify");
 let mockGetModels = jest.fn();
 
 jest.mock("../../hooks/cars/useCars", () => {
@@ -13,9 +14,10 @@ jest.mock("../../hooks/cars/useCars", () => {
   });
 });
 
-jest.mock("../../utils/modals", () => ({
-  errorModal: jest.fn(),
-}));
+// jest.mock("../../utils/modals", () => ({
+//   errorModal: jest.fn(),
+//   successModal: jest.fn(),
+// }));
 
 describe("Given a Form component", () => {
   beforeEach(() => mockGetModels.mockResolvedValue([]));
@@ -119,8 +121,11 @@ describe("Given a Form component", () => {
       await userEvent.selectOptions(selectOfFuel, fuelTyped);
 
       await waitFor(() => {
-        expect(errorModal).toHaveBeenCalledWith(
-          "Oops, there are not models :( "
+        expect(toast.error).toHaveBeenCalledWith(
+          "Oops, there are not models :( ",
+          {
+            position: toast.POSITION.TOP_CENTER,
+          }
         );
       });
     });
@@ -177,6 +182,70 @@ describe("Given a Form component", () => {
 
       await waitFor(() => {
         expect(carTable).toBeInTheDocument();
+      });
+    });
+  });
+
+  describe("When the user clicked on the button", () => {
+    test("Then it should call the succes modal", async () => {
+      mockGetModels.mockResolvedValue(expectedListOfCars.cars);
+
+      const usernameTyped = "Margarita";
+      const brandTyped = "Alfa Romeo";
+      const enrollmentDateTyped = "2020-03-02";
+      const fuelTyped = "G";
+      const labelOfModel = "Car model:";
+      const modelTyped = "4C 1.7 Tbi TCT / 1.75 6V 240";
+
+      render(
+        <BrowserRouter>
+          <Form />
+        </BrowserRouter>
+      );
+
+      const placeholderInputUsername = "Enter your name :)";
+      const placeholderInputEnrollmentDate = "enrollmentDate";
+      const labelOfBrandCar = "Choose the car brand:";
+      const labelOfFuelType = "Fuel type:";
+
+      const inputOfUsername = screen.getByPlaceholderText(
+        placeholderInputUsername
+      ) as HTMLInputElement;
+      const inputOfEnrollmentDate = screen.getByPlaceholderText(
+        placeholderInputEnrollmentDate
+      ) as HTMLInputElement;
+      const selectOfBrandCar = screen.getByLabelText(labelOfBrandCar);
+      const selectOfFuel = screen.getByLabelText(labelOfFuelType);
+
+      // eslint-disable-next-line testing-library/no-unnecessary-act
+      await act(async () => {
+        await userEvent.type(inputOfUsername, usernameTyped);
+        await userEvent.type(inputOfEnrollmentDate, enrollmentDateTyped);
+        await userEvent.selectOptions(selectOfBrandCar, brandTyped);
+        await userEvent.selectOptions(selectOfFuel, fuelTyped);
+      });
+      const selectOfModel = screen.getByLabelText(labelOfModel);
+
+      // eslint-disable-next-line testing-library/no-unnecessary-act
+      await act(async () => {
+        await userEvent.selectOptions(selectOfModel, modelTyped);
+      });
+
+      const buttonText = "Save";
+      const button = screen.getByRole("button", { name: buttonText });
+
+      // eslint-disable-next-line testing-library/no-unnecessary-act
+      await act(async () => {
+        await userEvent.click(button);
+      });
+
+      await waitFor(() => {
+        expect(toast.success).toHaveBeenCalledWith(
+          "Great! The car was saved :)",
+          {
+            position: toast.POSITION.TOP_CENTER,
+          }
+        );
       });
     });
   });

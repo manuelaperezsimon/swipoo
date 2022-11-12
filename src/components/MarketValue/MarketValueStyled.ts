@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 const MarketValueStyle = styled.section`
+  box-shadow: ${(props) => props.theme.gradientBoxesColor};
+
   table {
     width: 100%;
   }

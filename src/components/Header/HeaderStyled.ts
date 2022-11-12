@@ -12,6 +12,13 @@ const HeaderStyled = styled.div`
   .header__title {
     display: none;
   }
+
+  .header__logo {
+    position: absolute;
+    top: 16px;
+    left: 25px;
+    width: 7rem;
+  }
 `;
 
 export default HeaderStyled;

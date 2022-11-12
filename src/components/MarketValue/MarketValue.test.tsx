@@ -4,7 +4,7 @@ import { fakeCar } from "../../test-utils/cars";
 
 describe("Given a MarketValue componente", () => {
   describe("When it's instantiated", () => {
-    test.only("Then it should show a table with the vehicle's depreciation", () => {
+    test("Then it should show a table with the vehicle's depreciation", () => {
       render(<MarketValue car={fakeCar} />);
 
       const headOfTable = "Market Value";

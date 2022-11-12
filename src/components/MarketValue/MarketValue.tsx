@@ -12,7 +12,7 @@ const MarketValue = ({
   const years = new Date().getFullYear() - Number(period.slice(0, 4));
 
   for (let i = 1; i < years + 1; i++) {
-    const newValue = (Number(value) * (100 - i * 10)) / 100;
+    const newValue = (Number(value) * ((100 - i * 10) / 100)).toFixed(2);
     tableValues.push([`${100 - i * 10}% of market value`, `${newValue} €`]);
   }
 
@@ -21,7 +21,9 @@ const MarketValue = ({
       <table className="table__container" data-testid="table">
         <thead>
           <tr>
-            <th className="table__heading">Market Value</th>
+            <th className="table__heading" colSpan={2}>
+              Market Value
+            </th>
           </tr>
         </thead>
         <tbody>

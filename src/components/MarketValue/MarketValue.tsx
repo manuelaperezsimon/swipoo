@@ -9,7 +9,9 @@ interface MarketValueProps {
 const MarketValue = ({
   car: { period, value },
 }: MarketValueProps): JSX.Element => {
-  const tableValues = [["Value according to Hacienda", `${value} €`]];
+  const tableValues = [
+    ["Value according to Hacienda (BOE-A-2017-15284)", `${value} €`],
+  ];
   const years = new Date().getFullYear() - Number(period.slice(0, 4));
 
   for (let i = 1; i < years + 1; i++) {

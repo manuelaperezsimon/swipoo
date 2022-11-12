@@ -1,4 +1,5 @@
 import { CompleteCarInfo } from "../../interfaces/interfaceCar";
+import carBrands from "../../utils/brands";
 import CarStyled from "./CarStyled";
 
 interface CarProps {
@@ -6,17 +7,23 @@ interface CarProps {
 }
 
 const CarCard = ({
-  car: { brand, model, period, cc, cylinders, fuel, kw, cvf, cv, value },
+  car: { brand, model, period, cc, cylinders, fuel, kw, cvf, cv, value, user },
 }: CarProps): JSX.Element => {
   return (
     <CarStyled>
       <table className="table__container" data-testid="table">
         <thead>
           <tr>
-            <th className="table__heading">Vehicle data</th>
+            <th className="table__heading" colSpan={2}>
+              Vehicle data
+            </th>
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td>User</td>
+            <td>{user}</td>
+          </tr>
           <tr>
             <td>Brand</td>
             <td>{brand}</td>

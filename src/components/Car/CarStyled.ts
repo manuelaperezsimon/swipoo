@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-const CarStyled = styled.div`
-  margin-top: 2rem;
-
+const CarStyled = styled.section`
   table {
     width: 100%;
   }

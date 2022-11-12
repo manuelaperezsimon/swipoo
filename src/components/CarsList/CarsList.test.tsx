@@ -10,7 +10,7 @@ Object.defineProperty(window, "localStorage", {
 
 describe("Given a CarsList component", () => {
   describe("When it's instantiated", () => {
-    test.only("Then it should show a list of two cars", async () => {
+    test("Then it should show a list of two cars", async () => {
       saveInLocalStorage(expectedListOfCars.cars[0]);
       saveInLocalStorage(expectedListOfCars.cars[1]);
       mockLocalStorage.getItem("carsCreated");

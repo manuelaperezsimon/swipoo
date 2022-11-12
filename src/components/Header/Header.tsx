@@ -6,7 +6,7 @@ const Header = (): JSX.Element => {
       <HeaderStyled>
         <h1 className="header__title">Swipoo</h1>
         <img
-          src="img/swipoo-logo.png"
+          src="img/swipoo-logo.svg"
           alt="Swipoo logo"
           className="header__logo"
         ></img>

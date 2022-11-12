@@ -53,9 +53,9 @@ describe("Given a Form component", () => {
   describe("When the user type in the fields of the form", () => {
     test("Then it should take the value of user types", async () => {
       const usernameTyped = "Margarita";
-      const brandTyped = "Alfa Romeo";
+      const brandTyped = "Abarth";
       const enrollmentDateTyped = "2020-03-02";
-      const fuelTyped = "G";
+      const fuelTyped = "D";
 
       render(
         <BrowserRouter>

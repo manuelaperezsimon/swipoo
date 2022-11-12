@@ -11,6 +11,7 @@ import saveInLocalStorage from "../../utils/saveInLocalStorage";
 import FormStyled from "./FormStyled";
 import { useNavigate } from "react-router-dom";
 import MarketValue from "../MarketValue/MarketValue";
+import { v4 as uuidv4 } from "uuid";
 
 const Form = (): JSX.Element => {
   const initialCarState: Car = {
@@ -110,7 +111,7 @@ const Form = (): JSX.Element => {
                 onChange={onSelectInfo}
               >
                 {carBrands.map((brand) => (
-                  <option key={brand}>{brand}</option>
+                  <option key={uuidv4()}>{brand}</option>
                 ))}
               </select>
             </label>
@@ -139,7 +140,7 @@ const Form = (): JSX.Element => {
                 onChange={onSelectInfo}
               >
                 {cardFuel.map((fuel) => (
-                  <option key={fuel}>{fuel}</option>
+                  <option key={uuidv4()}>{fuel}</option>
                 ))}
               </select>
             </label>
@@ -154,7 +155,7 @@ const Form = (): JSX.Element => {
                 onChange={onSelectInfo}
               >
                 {cars.map((car, index) => {
-                  return <option key={index}>{car.model}</option>;
+                  return <option key={uuidv4()}>{car.model}</option>;
                 })}
               </select>
             </label>

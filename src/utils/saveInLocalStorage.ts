@@ -1,5 +1,4 @@
 import { CompleteCarInfo } from "../interfaces/interfaceCar";
-import { successModal } from "./modals";
 
 const saveInLocalStorage = (completeCarInfo: CompleteCarInfo) => {
   const hasCarsInLocalStorage = localStorage.getItem("carsCreated");
@@ -12,7 +11,6 @@ const saveInLocalStorage = (completeCarInfo: CompleteCarInfo) => {
   }
   carsCreated.push(completeCarInfo);
   localStorage.setItem("carsCreated", JSON.stringify(carsCreated));
-  successModal("Great! The car was saved :)");
 };
 
 export default saveInLocalStorage;

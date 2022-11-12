@@ -7,6 +7,7 @@ export interface Car {
 }
 
 export interface CompleteCarInfo {
+  user?: string;
   brand: string;
   model: string;
   period: string;

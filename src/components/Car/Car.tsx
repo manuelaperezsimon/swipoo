@@ -19,10 +19,13 @@ const CarCard = ({
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>User</td>
-            <td>{user}</td>
-          </tr>
+          {user && (
+            <tr>
+              <td>User</td>
+              <td>{user}</td>
+            </tr>
+          )}
+
           <tr>
             <td>Brand</td>
             <td>{brand}</td>

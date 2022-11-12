@@ -18,13 +18,21 @@ const CarsList = (): JSX.Element => {
   return (
     <>
       <CarsListStyled>
-        <ul className="cars__list">
-          {carsList.map((car) => (
-            <li key={car.value} className="cars__car">
-              <CarCard car={car} />
-            </li>
-          ))}
-        </ul>
+        {carsList.length > 0 ? (
+          <ul className="cars__list">
+            {carsList.map((car) => (
+              <li key={car.value} className="cars__car">
+                <CarCard car={car} />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <>
+            <h2 className="list__heading--empty">
+              There are no models saved here!
+            </h2>
+          </>
+        )}
       </CarsListStyled>
     </>
   );

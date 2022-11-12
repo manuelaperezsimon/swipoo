@@ -13,6 +13,10 @@ const CarsListStyled = styled.section`
     padding: 0;
   }
 
+  .list__heading--empty {
+    color: ${(props) => props.theme.primaryColor};
+  }
+
   @media (min-width: 900px) {
     .cars__list {
       display: flex;

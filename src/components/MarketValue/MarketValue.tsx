@@ -1,6 +1,5 @@
 import { CompleteCarInfo } from "../../interfaces/interfaceCar";
 import MarketValueStyle from "./MarketValueStyled";
-import { v4 as uuidv4 } from "uuid";
 
 interface MarketValueProps {
   car: CompleteCarInfo;
@@ -34,8 +33,8 @@ const MarketValue = ({
             {tableValues.map((row) => {
               return (
                 <tr>
-                  <td key={uuidv4()}>{row[0]}</td>
-                  <td key={uuidv4()}>{row[1]}</td>
+                  <td key={value + period}>{row[0]}</td>
+                  <td key={value + period}>{row[1]}</td>
                 </tr>
               );
             })}

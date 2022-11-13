@@ -1,5 +1,6 @@
 import { CompleteCarInfo } from "../../interfaces/interfaceCar";
 import MarketValueStyle from "./MarketValueStyled";
+import { v4 as uuidv4 } from "uuid";
 
 interface MarketValueProps {
   car: CompleteCarInfo;
@@ -8,6 +9,7 @@ interface MarketValueProps {
 const MarketValue = ({
   car: { period, value },
 }: MarketValueProps): JSX.Element => {
+  const key = uuidv4();
   const tableValues = [
     ["Value according to Hacienda (BOE-A-2017-15284)", `${value} €`],
   ];
@@ -33,8 +35,8 @@ const MarketValue = ({
             {tableValues.map((row) => {
               return (
                 <tr>
-                  <td key={value + period}>{row[0]}</td>
-                  <td key={value + period}>{row[1]}</td>
+                  <td key={key}>{row[0]}</td>
+                  <td key={key}>{row[1]}</td>
                 </tr>
               );
             })}

@@ -27,6 +27,10 @@ const CarStyled = styled.section`
     background-color: ${(props) => props.theme.primaryColor};
     color: white;
   }
+
+  .table__heading {
+    text-align: center;
+  }
 `;
 
 export default CarStyled;

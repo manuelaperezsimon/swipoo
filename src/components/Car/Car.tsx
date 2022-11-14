@@ -6,7 +6,7 @@ interface CarProps {
 }
 
 const CarCard = ({
-  car: { brand, model, period, cc, cylinders, fuel, kw, cvf, cv, value, user },
+  car: { brand, model, cc, cylinders, fuel, kw, cvf, cv, user },
 }: CarProps): JSX.Element => {
   return (
     <CarStyled>

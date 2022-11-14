@@ -1,29 +1,21 @@
 import { CompleteCarInfo } from "../../interfaces/interfaceCar";
 import MarketValueStyle from "./MarketValueStyled";
-import { v4 as uuidv4 } from "uuid";
 
 interface MarketValueProps {
   car: CompleteCarInfo;
 }
 
 const MarketValue = ({
-  car: { period, value },
+  car: { period, value, user },
 }: MarketValueProps): JSX.Element => {
-  const key = uuidv4();
-  const tableValuesOfDeprecation = [
+  const tableValues = [
     ["Value according to Hacienda (BOE-A-2017-15284)", `${value} €`],
   ];
   const years = new Date().getFullYear() - Number(period.slice(0, 4));
 
   for (let i = 1; i < years + 1; i++) {
-    const valueWithPorcentOfDeprecation = (
-      Number(value) *
-      ((100 - i * 10) / 100)
-    ).toFixed(2);
-    tableValuesOfDeprecation.push([
-      `${100 - i * 10}% of market value`,
-      `${valueWithPorcentOfDeprecation} €`,
-    ]);
+    const newValue = (Number(value) * ((100 - i * 10) / 100)).toFixed(2);
+    tableValues.push([`${100 - i * 10}% of market value`, `${newValue} €`]);
   }
 
   return (
@@ -38,11 +30,11 @@ const MarketValue = ({
         </thead>
         <tbody>
           <>
-            {tableValuesOfDeprecation.map((row) => {
+            {tableValues.map((row, index) => {
               return (
                 <tr>
-                  <td key={key}>{row[0]}</td>
-                  <td key={key}>{row[1]}</td>
+                  <td key={index}>{row[0]}</td>
+                  <td key={index}>{row[1]}</td>
                 </tr>
               );
             })}

@@ -35,6 +35,11 @@ const FormStyled = styled.section`
     flex-direction: column;
     margin-top: 2rem;
     gap: 4.5rem;
+    align-items: center;
+  }
+
+  .table__container {
+    width: 30rem;
   }
 
   @media (min-width: 900px) {
@@ -47,6 +52,10 @@ const FormStyled = styled.section`
       width: 60%;
       max-width: 600px;
       padding: 1.8rem 3rem;
+    }
+
+    .cars__car {
+      width: 30rem;
     }
   }
 `;
